@@ -34,12 +34,12 @@ def write_enum(enum_defs, name, mult = None):
 
     for i, cc in enumerate(enum_defs):
         if len(cc) == 3:
-            enum_str += '    {}_{} = {}\n'.format(name, cc[0], cc[2])
+            enum_str += '    {}_{} = {},\n'.format(name, cc[0], cc[2])
         elif len(cc) == 2:
             if mult == None:
-                enum_str += '    {}_{}\n'.format(name, cc[0])
+                enum_str += '    {}_{},\n'.format(name, cc[0])
             else:
-                enum_str += '    {}_{} = {}\n'.format(name, cc[0], i * mult)
+                enum_str += '    {}_{} = {},\n'.format(name, cc[0], i * mult)
 
 
     enum_str += '}} {};\n'.format(name)
@@ -66,7 +66,6 @@ def write_enum_undef(enum_defs):
 def get_size_in_bits(num):
     bits = 0
     while num > 0:
-        print(num)
         bits += 1
         num //= 2
 
@@ -139,8 +138,6 @@ for item in character_class_map:
 
 
 for item in state_transitions:
-    print('-------------------------')
-    print(item)
     s = get_name_num(states, item[0])
     t = None
 
@@ -236,7 +233,7 @@ for i, cc in enumerate(character_classes):
         row += state_map[i * len(states) + j].rjust(width)
         if j < len(states) - 1:
             row += ','
-    row += ' )'
+    row += ' ),'
     print(row)
 print('};\n\n')
 
