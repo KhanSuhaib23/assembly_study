@@ -217,7 +217,7 @@ for i in range(0, 16):
 print('};\n\n')
 
 
-print(lut_define)
+print('{}\n'.format(lut_define))
 st_fmt = '/* {} */    lut('
 
 index_width = max(map(lambda x: len(x[1]), character_classes))
@@ -236,6 +236,8 @@ for i, cc in enumerate(character_classes):
     row += ' ),'
     print(row)
 print('};\n\n')
+
+print('#undef lut\n')
 
 write_enum_undef(character_classes)
 write_enum_undef(states)

@@ -47,6 +47,7 @@ const uint8_t character_class[] = {
     (uint16_t) (((s0) << (BITS_PER_STATE * 0)) |\
                 ((s1) << (BITS_PER_STATE * 1)) |\
                 ((s2) << (BITS_PER_STATE * 2)))
+
 const uint16_t dfa[] = {
 //                ic   gl   st 
 /* nl */    lut(  st,  ic,  st ),
@@ -55,6 +56,8 @@ const uint16_t dfa[] = {
 /* iv */    lut(  st,  ic,  st ),
 };
 
+
+#undef lut
 
 #undef nl
 #undef lt
