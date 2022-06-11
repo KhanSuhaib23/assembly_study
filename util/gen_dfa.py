@@ -233,7 +233,9 @@ print(st_header)
 for i, cc in enumerate(character_classes):
     row = st_fmt.format(cc[1])
     for j, st in enumerate(states):
-        row += state_map[i * len(states) + j].rjust(width) + ','
+        row += state_map[i * len(states) + j].rjust(width)
+        if j < len(states) - 1:
+            row += ','
     row += ' )'
     print(row)
 print('};\n\n')
